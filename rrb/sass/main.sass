@@ -1,0 +1,1418 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+
+
+body
+	font-size: 24px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	color: $text
+	font-weight: 500
+	min-height: 100%
+	max-width: 1920px
+	margin: 0 auto
+	input, textarea
+		// border: #666 1px solid
+		outline: none
+		// &:focus:required:invalid
+		// 	border-color: red
+		// &:required:valid
+		// 	border-color: green
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+
+b, strong
+	font-weight: bold
+
+
+/* main style */
+	
+body *
+	box-sizing: border-box
+	cursor: none!important
+
+.container
+	max-width: 1570px
+	margin: 0 auto
+	padding: 0 15px
+
+	
+
+ul, li
+	margin: 0
+	padding: 0
+	list-style-type: none
+	a
+		color: #fff
+		transition: all .2s ease
+		&:hover
+			text-decoration: none
+			color: $accent
+
+h1, h2, h3, h4, h5, h6
+	margin: 0
+
+.h4
+	font-size: 18px
+
+.cursor
+	display: block
+	position: fixed
+	z-index: 100000
+	pointer-events: none
+	width: 24px
+	height: 24px
+	border-radius: 50%
+	background: $gradient
+	margin: -12px 0 0 -12px
+	transform: translate3d(0,0,0)
+	opacity: .75
+	transition: opacity .2s ease,width .2s ease,height .2s ease,margin .2s ease
+
+.cursor.isHover
+	opacity: 0.5
+	width: 48px
+	height: 48px
+	margin: -24px 0 0 -24px
+
+
+
+.menu__toggle
+	border: 0
+	background: 0 0
+	position: absolute
+	box-shadow: none
+	transform: none
+	width: 60px
+	height: 60px
+	opacity: 1
+	visibility: visible
+	display: none
+	top: 42px
+	right: 20px
+	z-index: 550
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+	outline: 0
+	cursor: pointer
+	> div
+		position: absolute
+		top: 0
+		left: 10px
+		bottom: 0
+		margin: auto
+		width: 36px
+		height: 3px
+		background-color: #fff
+		transition: transform .2s ease, width .3s ease
+		border-radius: 3px
+		&:nth-child(1)
+			transform: translate(0,-5px)
+		&:nth-child(2)
+			transform: scaleX(0)
+		&:nth-child(3)
+			transform: translate(0, 5px)
+	&:hover > div
+		&:nth-child(1)
+			width: 30px
+			transform: translate(3px, -10px)
+		&:nth-child(2)
+			transform: scaleX(1)
+		&:nth-child(3)
+			width: 30px
+			transform: translate(3px, 10px)
+	&:focus
+		outline: 0
+
+.sidenav-open .menu__toggle	
+	> div:nth-child(1)
+		transform: rotate(-45deg)
+	> div:nth-child(2)
+		display: none
+	> div:nth-child(3)
+		transform: rotate(45deg)
+	&:hover > div
+		&:nth-child(1)
+			width: 36px
+		&:nth-child(3)
+			width: 36px
+
+
+.sidenav
+	z-index: 500
+	position: fixed
+	justify-content: center
+	align-items: center
+	top: 0
+	left: 0
+	width: 100vw
+	height: 100vh
+	display: flex
+	opacity: 0
+	visibility: hidden
+	transition: all .3s ease-in-out
+	will-change: opacity
+	text-align: center
+	ul
+		width: 100%
+		text-transform: uppercase
+		li
+			padding: 17px 5px
+			transition: background-color .3s ease
+			border: 2px solid #fff
+			width: 55%
+			margin: 0 auto
+			border-radius: 5px
+			a
+				color: #fff
+			&:hover
+				background-color: #f04b60
+		li + li
+			margin-top: 20px
+
+			
+
+
+.sidenav-open .sidenav
+	opacity: 1
+	visibility: visible
+
+.sidenav-overlay
+	position: fixed
+	left: 0
+	top: 0
+	z-index: 400
+	width: 100%
+	height: 100%
+	background: #f55b80
+	opacity: 0
+	visibility: hidden
+	transition: all .3s ease-in-out
+	will-change: opacity
+
+.sidenav-open .sidenav-overlay
+	opacity: 0.95
+	visibility: visible
+	
+.btn
+	transition: all .2s ease
+	&:hover a
+		text-decoration: none
+		background: $gradient-conversely
+		box-shadow: none
+	&:active
+		transform: scale(1.02)
+	a
+		color: #fff
+		font-weight: bold
+		line-height: 75px
+		padding: 23px 68px
+		background: $gradient
+		background-color: $accent
+		border-radius: 48px
+		box-shadow: 0 0 20px #2d6bed
+
+.logo
+	z-index: 99
+	img
+		display: block
+		width: 160px
+		height: auto
+
+::-webkit-scrollbar
+	width: 18px
+::-webkit-scrollbar-track
+	background-color: rgba(0, 0, 0, .1)
+
+::-webkit-scrollbar-thumb
+	background: $gradient
+	border-radius: 8px
+	border: 3px solid #e5e5e5
+
+/***************************************************************
+	***********************	MEDIA SCROLL ***************************
+	*************************************************************/
+
+@media (max-width: 1538px)
+
+	::-webkit-scrollbar
+		width: 15px
+	::-webkit-scrollbar-track
+		background-color: rgba(0, 0, 0, .1)
+
+	::-webkit-scrollbar-thumb
+		background: $gradient
+		border-radius: 8px
+		border: 2px solid #e5e5e5
+
+
+/***************************************************************
+	***********************	HEAD ***************************
+	*************************************************************/		
+
+
+.head
+	background-image: url('../img/head/bg-3.svg'), url('../img/head/bg-2.svg'), url('../img/head/bg-1.svg')
+	background-repeat: no-repeat
+	background-position: left
+	background-size: cover
+	position: relative
+	overflow: hidden
+	height: 100vh
+	min-height: 850px
+	max-height: 1140px
+	max-width: 1920px
+	margin: 0 auto
+
+
+	.topline
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding-top: 37px
+		&__menu 
+			z-index: 99
+			ul
+				li + li
+					margin-left: 66px
+				li
+					display: inline-block
+					a
+						padding: 10px 12px
+						font-size: 20px
+						line-height: 1.2
+						transition: color .2.5s ease
+					&:hover a
+						color: #333
+			
+	.h2
+		padding: 60px 0 78px 0
+		margin: 0
+		color: #fff
+		text-align: center
+		font-size: 50px
+		font-weight: 800
+		position: relative
+		&::after
+			content: ''
+			width: 471px
+			height: 471px
+			position: absolute
+			border-radius: 100%
+			background: rgba(196, 196, 196, 0.5)
+			filter: blur(5px)
+			mix-blend-mode: soft-light
+			top: -156px
+			right: -280px
+		&::before
+			content: ''
+			width: 355px
+			height: 355px
+			position: absolute
+			border-radius: 100%
+			background: rgba(196, 196, 196, 0.5)
+			filter: blur(5px)
+			mix-blend-mode: soft-light
+			left: -10%
+			top: 50%
+
+
+	.content
+		max-width: 1400px
+		margin: 0 auto
+		display: flex
+		justify-content: space-between
+		&__card
+			position: relative
+		
+			img
+				display: block
+				margin-right: auto
+				transform: rotate(-15deg);
+				padding-top: 5px
+				max-width: 685px
+				width: 100%
+				height: auto
+				position: relative
+			
+
+		&__advantages
+			.content__title
+				font-weight: 800
+				color: #fff
+				font-size: 48px
+				text-transform: uppercase
+				line-height: 1.2
+				margin-bottom: 48px
+				position: relative
+				z-index: 30
+				overflow: hidden
+				span
+					&:after
+						content: ''
+						display: block
+						background: $gradient
+						width: 110px
+						height: 15px
+						position: absolute
+						bottom: 0px
+						opacity: 1
+						border-radius: 5px
+						z-index: -1
+						transform: translateX(-100%)
+						transition:  transform .3s ease
+			.content__title.is-appeared span:after
+				transform: translateX(0)
+
+			.content__list
+				padding-bottom: 42px
+				position: relative
+				li + li
+					padding-top: 41px
+				li
+					font-size: 24px
+					line-height: 1.2
+					color: #fff
+			.content__btn
+				margin-bottom: 160px
+
+
+
+	.scroll	
+		width: 76px
+		height: 76px
+		background: $gradient
+		border-radius: 100%
+		bottom: 10px
+		transform: translateX(-50%)
+		left: 50%
+		position: absolute
+		img
+			display: block
+			margin: 0 auto
+			transform: translate(-50%, -50%)
+			left: 50%
+			top: 50%
+			position: absolute
+			width: 23px
+			height: auto
+	
+/***************************************************************
+	***********************	MEDIA HEAD ***************************
+	*************************************************************/
+
+@media (max-width: 1750px)
+
+	.container
+		max-width: 1230px
+
+	.head
+		min-height: 722px
+		max-height: 820px
+		.h2
+			font-size: 40px
+			padding: 70px 0 70px 0	
+	
+
+	.head .topline__menu ul li+li 
+    margin-left: 26px
+
+	.head .content__advantages 
+		max-width: 60%
+		.content__title
+			font-size: 38px
+			margin-bottom: 30px
+		.content__list
+			padding-bottom: 30px
+		.content__btn a
+			padding: 18px 62px
+			font-size: 20px
+	
+	.head .content__advantages .content__list li+li
+		padding-top: 30px
+	
+	.head .content__card
+		max-width: 40%
+		margin: 0 auto
+
+	.head .content__advantages .content__list li
+		font-size: 20px
+						
+	.head .scroll
+		width: 60px
+		height: 60px
+		img
+			width: 20px
+
+	.head .topline__menu ul li a
+		font-size: 18px
+
+
+@media  (max-width: 1094px)
+ 
+	.head 
+		min-height: auto
+		max-height: none
+		.h2 
+			padding: 50px 0 50px 0
+
+	.head
+		height: auto
+		.topline__menu
+			display: none
+	
+	.head .content__advantages .content__btn
+		margin-bottom: 100px
+	.menu__toggle
+		display: block
+
+
+
+@media  (max-width: 943px)
+	.head .h2
+		font-size: 33px
+		
+
+@media  (max-width: 800px)
+	.head .content__advantages
+		display: block
+		margin: 0 auto
+		max-width: none
+	
+	.head .content__card
+		display: none
+
+
+@media  (max-width: 550px)
+	.head .h2
+		font-size: 32px
+
+	.head .h2::before
+		left: -29%;
+
+
+
+@media  (max-width: 448px)
+	.head .topline__logo img
+		width: 130px
+
+
+	.head 
+		.h2
+			font-size: 23px
+			padding: 35px 0 35px 0
+
+	.head .h2::before
+		display: none
+
+	.head .content__advantages .content__title
+		font-size: 30px
+
+	.head .content__advantages .content__list li
+		font-size: 16px
+
+	.head .content__advantages .content__btn a
+		padding: 18px 43px
+		font-size: 18px
+
+
+	.head .scroll
+		width: 45px
+		height: 45px
+		img
+			width: 16px
+
+
+/***************************************************************
+	***********************	SECTION VIDEO ***************************
+	*************************************************************/
+
+.s-video
+	padding-top: 112px
+	padding-bottom: 58px
+	position: relative
+	overflow: hidden
+	.content
+		text-align: center
+		&:after
+			content: ''
+			width: 463px
+			height: 463px
+			position: absolute
+			border-radius: 100%
+			background: linear-gradient(134.35deg, #F9005F 0%, #E4B862 83.17%)
+			filter: blur(10px)
+			mix-blend-mode: soft-light
+			top: 122px
+			right: -50px
+			opacity: 0.4
+		&:before
+			content: ''
+			width: 198px
+			height: 198px
+			position: absolute
+			border-radius: 100%
+			background: linear-gradient(134.35deg, #F9005F 0%, #E4B862 83.17%)
+			filter: blur(10px)
+			mix-blend-mode: soft-light
+			bottom: 106px
+			left: 69px
+			opacity: 0.4
+		.h3
+			margin-bottom: 40px
+
+
+.video
+	max-width: 921px
+	margin: 0 auto
+	position: relative
+	&__poster
+		position: relative
+		z-index: 30
+		img
+			display: block
+			max-width: 100%
+			height: auto
+		.video__cover
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			background-color: pink
+			opacity: 0
+			visibility: hidden
+		.btn-play
+			position: absolute
+			padding: 0
+			border: 0
+			background: transparent
+			background-image: url('../img/promo/Polygon.svg')
+			width: 153px
+			height: 100%
+			background-repeat: no-repeat
+			background-position: center
+			background-size: contain
+			opacity: 1
+			top: 50%
+			left: 50%
+			transform: translate(-50%,-50%)
+			outline: none
+			z-index: 31
+		.btn-replay
+			position: absolute
+			padding: 0
+			border: 0
+			background: transparent
+			background-image: url('../img/promo/replay.svg')
+			width: 153px
+			height: 100%
+			background-repeat: no-repeat
+			background-position: center
+			background-size: contain
+			opacity: 1
+			top: 50%
+			left: 50%
+			transform: translate(-50%,-50%)
+			outline: none
+			z-index: 31
+			display: none
+	.video__content
+		position: absolute
+		top: 0
+		left: 0
+		z-index: 100
+		width: 100%
+		height: 100%
+		opacity: 0
+		visibility: hidden
+		transition: all .2s ease
+		video
+			width: 88.5%
+			height: auto
+			margin: 0 auto
+			left: 50%
+			top: 50%
+			position: absolute
+			transform: translate(-50%,-50%)
+			border-radius: 50px
+			z-index: 201
+		.video__panel
+			width: 100%
+			position: relative
+			z-index: 202
+			border-radius: 0 0 10% 10%
+			height: 100%
+			text-align: left
+			.panel__item
+				display: inline-block
+				position: absolute
+				opacity: 0.2
+				transition: opacity .2s ease
+				&:hover
+					opacity: 1
+				.panel__btn
+					padding: 0
+					border: 0
+					background-color: transparent
+					outline: none
+					img
+						width: 36px
+						height: auto
+						display: block
+						&:hover
+							transform: scale(1.1)
+				.progress
+					height: 25px
+					width: 100%
+					background-color: #fff
+					&__wrap
+						width: 100%
+						height: 25px
+						> div
+							background-color: red
+							height: 100%
+				&:last-child
+			.panel__item--timer
+				width: 40%
+			.panel__item--progress
+				width: 100%
+			.panel__item--replay
+				display: none
+			.panel__item--close
+				right: 5%
+				top: 8%
+			.panel__item--muted
+				bottom: 5%
+				left: 12%
+			.panel__item--unmuted
+				bottom: 5%
+				left: 12%
+				display: none
+			.panel__item--play
+				bottom: 5%
+				left: 5%
+				display: none
+			.panel__item--pause
+				bottom: 5%
+				left: 5%
+
+			
+		.video__bacg
+			background-color: #000
+			width: 93.5%
+			height: 88.5%
+			position: absolute
+			z-index: 200
+			left: 50%
+			top: 50%
+			transform: translate(-50%,-50%)
+			border-radius: 18px
+
+
+/***************************************************************
+	***********************	MEDIA VIDEO ***************************
+	*************************************************************/
+
+
+@media  (max-width: 650px)
+ .video .video__content .video__panel .panel__item .panel__btn img
+	 width: 24px
+	.video .video__content .video__bacg
+			border-radius: 10px
+	.s-video .content:after
+		display: none
+
+@media  (max-width: 448px)
+	.s-video	
+		padding-top: 30px
+		padding-bottom: 50px
+	.video .video__content .video__panel .panel__item--muted
+	 left: 16%
+	.video .video__content .video__panel .panel__item--unmuted
+	 left: 16%
+	.video .video__content .video__bacg
+		border-radius: 7px
+	.s-video .content .h3
+		font-size: 20px
+		margin-bottom: 15px
+	.s-video .content:before
+		display: none
+
+/***************************************************************
+	***********************	SECTION INFO ***************************
+	*************************************************************/
+
+.s-info
+	text-align: center
+	padding-bottom: 50px
+	.h3
+		padding-bottom: 141px
+	.info-wrap
+		display: flex
+		justify-content: space-between
+		.info
+			max-width: 377px
+			position: relative
+			&__title
+				margin-bottom: 22px
+				z-index: 2
+				position: relative
+			&__desc
+				font-size: 18px
+				z-index: 3
+				position: relative
+			&__count
+				position: absolute
+				font-size: 288px
+				line-height: 1
+				font-weight: 900
+				bottom: 18%
+				left: 0
+				z-index: 1
+				background: linear-gradient(106deg, #f8618f 0%, #eccd91 83.17%)
+				background-clip: text
+				-webkit-background-clip: text
+				-webkit-text-fill-color: transparent
+				color: #f55b80
+			&__count--2
+				left: -23%
+			&__count--3
+				left: 12%
+		.info + .info
+			margin-left: 100px
+
+/***************************************************************
+	***********************	MEDIA INFO ***************************
+	*************************************************************/
+
+
+@media  (max-width: 1094px)
+	.s-info .info-wrap .info__count--2
+		left: 0
+	.s-info .info-wrap .info__desc
+		font-size: 14px
+	.s-info .info-wrap .info__count
+		bottom: 0
+	.s-info .info-wrap .info+.info
+		margin-left: 50px
+
+ 
+@media  (max-width: 943px)
+	.s-info .info-wrap .info
+		width: 47%
+		max-width: none
+	.s-info .info-wrap
+		flex-wrap: wrap
+	.s-info .info-wrap .info+.info
+		margin-left: 0px
+	.s-info .info-wrap .info--3
+		margin-top: 40px
+		width: 100%
+		padding: 0 100px
+	.s-info .info-wrap .info__count--3
+		left: 24%
+		bottom: -24px
+	.s-info .info-wrap .info__count
+		font-size: 210px
+	.s-info .h3
+		padding-bottom: 60px
+
+	.s-info .h4
+		font-size: 14px
+
+@media  (max-width: 550px)
+	.s-info .info-wrap
+		flex-direction: column
+	.s-info .info-wrap .info
+		width: 100%
+		padding: 0 25px
+		padding-bottom: 25px
+	.s-info .h3
+		padding-bottom: 33px
+	.s-info .info-wrap .info__count
+		font-size: 125px
+		left: 0
+		bottom: 0
+	.s-info .info-wrap .info__count--3
+
+	.s-info .info-wrap .info--3
+		margin-top: 0
+
+	// .s-info .info-wrap .info+.info
+	// 	margin-top: 23px
+	.s-info .info-wrap .info__count
+		top: 0
+	.s-info .info-wrap .info__desc
+		margin-bottom: 0
+
+
+
+@media  (max-width: 448px)
+	.s-info .h3
+		padding-bottom: 30px
+		font-size: 20px
+
+	.s-info .info-wrap .info__title
+		margin-bottom: 13px
+
+	.s-info .info-wrap .info--3
+		padding-bottom: 33px
+
+	.s-info
+		padding-bottom: 50px
+
+
+/***************************************************************
+	***********************	SECTION FORM ***************************
+	*************************************************************/
+
+.s-form
+	position: relative
+	overflow: hidden
+	.form
+		max-width: 547px
+		text-align: center
+		margin: 0 auto
+		position: relative
+		.success
+			display: none
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			text-transform: uppercase
+			font-weight: bold
+			z-index: 10
+			span
+				margin: auto
+			& ~ *
+				transition: all .5s ease
+			&.active
+				& ~ *
+					opacity: 0.5
+					filter: blur(10px)
+		&__btn
+			margin-top: 40px
+			transition: all .2s ease
+			color: #fff
+			font-weight: bold
+			padding: 18px 68px
+			background: $gradient
+			background-color: $accent
+			border-radius: 48px
+			box-shadow: 0 0 20px #2d6bed
+			border: none
+			outline: none
+			margin-bottom: 60px
+			&:hover
+				background: $gradient-conversely
+				box-shadow: none
+			&:active
+				transform: scale(1.02)
+		&__title
+			margin-bottom: 45px
+		> input
+			display: block
+			margin-bottom: 35px
+			background-color: #eee
+			border: none
+			border-radius: 36px
+			padding: 17px 37px
+			width: 100%
+			font-size: 18px
+			&::placeholder
+				line-height: 1
+				font-size: 18px
+				color: $text
+		.checkbox
+			label
+				margin: 0 auto
+				display: block
+				max-width: 428px
+				text-align: left
+				padding-left: 80px
+				font-size: 18px
+				position: relative
+				line-height: 1.22
+				.checkbox-toggle
+					background-color: #eee
+					width: 59px
+					height: 33px
+					border-radius: 36px
+					display: inline-block
+					cursor: pointer
+					position: absolute
+					transform: translateY(-50%)
+					top: 50%
+					left: 0
+					.toggle
+						width: 21px
+						height: 21px
+						border-radius: 100%
+						position: absolute
+						transform: translateY(-50%)
+						top: 50%
+						left: 6px
+						display: block
+						transition: all .25s ease
+						background-color: #b7b7b7
+					input
+						visibility: hidden
+				span
+					display: inline-block
+					line-height: 1
+					position: relative
+					z-index: 9
+					&:after
+						content: ''
+						display: block
+						width: 100%
+						height: 5.5px
+						background-color: $accent
+						position: absolute
+						bottom: 0px
+						z-index: -1
+		.checkbox.checked
+			label
+				.toggle
+					left: 31px
+					box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25)
+					background: $gradient
+
+	img
+		max-width: 1375px
+		width: 100%
+		height: auto
+		display: block
+		position: absolute
+	.img--first
+		top: 9px
+	.img--second
+		top: 14px
+	.img--th
+		top: 19px
+			
+	.bg__circle
+		width: 471px
+		height: 471px
+		position: absolute
+		border-radius: 100%
+		background: linear-gradient(134.35deg, #F9005F 0%, #E4B862 83.17%)
+		opacity: 0.4
+		filter: blur(10px)
+		right: -231px
+		bottom: 20px
+
+
+
+
+body.isForm .s-form .form  > input:focus
+	cursor: auto!important
+body.isForm .cursor
+	width: 0
+	height: 0	
+
+/***************************************************************
+	***********************	MEDIA FORM ***************************
+	*************************************************************/
+			
+@media (max-width: 1750px)
+
+	.s-form .bg__circle
+		display: none
+	.s-form .form__btn
+		padding: 18px 62px
+		font-size: 20px
+
+	.s-form 
+		.img--first
+			top: 45px
+		.img--second
+			top: 50px
+		.img--th
+			top: 55px
+
+
+@media  (max-width: 448px)
+	.s-form .form__btn
+		padding: 18px 43px
+		font-size: 18px
+	.s-form .form__title
+		font-size: 20px
+	.s-form .form>input
+		font-size: 16px
+	.s-form .form>input::placeholder
+		font-size: 16px
+	.s-form .form .checkbox label
+		font-size: 14px
+		span::after
+			height: 3px
+	.s-form .form__btn
+		margin-bottom: 40px
+
+
+/***************************************************************
+	***********************	SECTION PARTNERS ***************************
+	*************************************************************/
+
+.s-partners
+	.title
+		text-align: center
+		margin-top: 5px
+		margin-bottom: 50px
+	.content
+		background-color: #eee
+		.partners
+			padding-top: 50px
+			display: flex
+			flex-wrap: wrap
+			justify-content: space-between
+			&__item
+				width: 25%
+				padding-bottom: 50px
+				img
+					display: block
+					margin: 0 auto
+
+
+@media  (max-width: 1094px)
+	.s-partners .content .partners__item
+		width: 33.3333%
+	.s-partners .content .partners
+		justify-content: space-around
+
+@media  (max-width: 800px)
+	.s-partners .content .partners__item img
+		max-width: 140px
+		width: 100%
+		height: auto
+
+@media  (max-width: 550px)
+	.s-partners .content .partners__item
+		width: 50%
+		padding-right: 15px
+		padding-left: 15px
+		padding-bottom: 30px
+	.s-partners .content .partners
+		padding-top: 30px
+	.s-partners .title
+		margin-bottom: 35px
+
+/***************************************************************
+	***********************	SECTION DOCUMENTS ***************************
+	*************************************************************/
+
+.s-documents
+	padding-top: 50px
+	padding-bottom: 70px
+	.title
+		text-align: center
+		margin-bottom: 50px
+
+	.documents
+		display: flex
+		justify-content: space-between
+		max-width: 1120px
+		margin: 0 auto
+		&__item
+			width: 360px
+			padding: 0 15px
+			.documents__link
+				color: #000
+				font-size: 18px
+				text-decoration: underline
+				text-align: center
+				img
+					display: block
+					margin: 0 auto
+					margin-bottom: 35px
+					max-width: 158px
+					width: 100%
+					height: auto
+
+/***************************************************************
+	***********************	SECTION NUMBER ***************************
+	*************************************************************/
+
+
+
+/***************************************************************
+	***********************	MEDIA DOCUMENTS ***************************
+	*************************************************************/
+
+
+@media  (max-width: 943px)
+	.s-documents p
+		font-size: 14px
+
+@media  (max-width: 550px)
+	.s-documents .documents
+		flex-wrap: wrap
+	.s-documents .documents__item
+		width: 70%
+		margin: 0 auto
+	.s-documents .documents__item .documents__link img
+		max-width: 100px
+		margin-bottom: 15px
+	.s-documents
+		padding-bottom: 50px
+	.s-documents .title
+		margin-bottom: 25px
+
+
+@media  (max-width: 448px)
+
+	.s-partners .title
+		font-size: 20px
+	.s-documents .title
+		font-size: 20px
+
+
+/***************************************************************
+	***********************	FOOTER **************************
+	*************************************************************/
+
+.footer
+	text-align: center
+	position: relative
+	color: #fff
+	.number
+		text-align: center
+		padding-bottom: 150px
+		color: #000
+	p
+		margin: 0
+		line-height: 1.2
+	a
+		margin-top: 20px
+		display: block
+		color: $text
+		font-weight: bold
+	.img__wrap
+		height: 100%
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		z-index: -1
+		img
+			position: absolute
+			width: 100%
+			height: auto
+			background-size: cover
+			background-repeat: no-repeat
+			background-position: left bottom
+			bottom: 0
+			left: 0	
+			z-index: -1
+			display: block
+	.circle__wrap
+		height: 300%
+		width: 100%
+		position: absolute
+		bottom: 0
+		left: 0
+		z-index: -1
+		overflow: hidden
+		.circle
+			position: absolute
+			background: #ff8e8a
+			opacity: 0.5
+			filter: blur(5px)
+			border-radius: 100%
+		.circle--1
+			width: 417px
+			height: 417px
+			bottom: -22%
+			left: -10%
+		.circle--2
+			width: 77px
+			height: 77px
+			bottom: 13%
+			left: 37%
+		.circle--3
+			width: 224px
+			height: 224px
+			bottom: -7%
+			left: 54%
+		.circle--4
+			width: 101px
+			height: 101px
+			bottom: 2%
+			right: -1%
+	.footer-copyright
+		padding-bottom: 24px
+	.footer-content
+		padding-bottom: 68px
+		.content-wrap
+			display: flex
+			justify-content: space-between
+			align-items: center
+			.social
+				display: flex
+				&__link
+					margin-right: 52px
+					img
+						display: block
+						width: 50px
+						height: 50px
+			.btn
+				a
+					box-shadow: 0 0 20px #fff
+					background: #fff
+					padding: 25px 28px
+					transition: box-shadow .25s ease
+					line-height: 1
+					&:hover
+						box-shadow: none
+					span
+						color: #F9005F
+						background: linear-gradient(175.37deg, #F9005F 0%, #E4B862 83.17%)
+						background-clip: text
+						-webkit-background-clip: text
+						-webkit-text-fill-color: transparent
+			.logo-wrap
+				width: 30%
+				.logo
+					display: block
+					max-width: 160px
+
+
+/***************************************************************
+	***********************MEDIA	FOOTER **************************
+	*************************************************************/				
+	
+@media (max-width: 1750px)
+	.footer .footer-content .content-wrap .logo-wrap
+		width: auto
+		margin-right: 60px
+
+@media (max-width: 1518px)
+	.footer .img__wrap img
+		min-height: 420px
+		max-width: 1920px
+		width: auto
+	.footer
+		overflow: hidden
+	.footer .footer-content .content-wrap .btn a
+		font-size: 23px
+	.footer .footer-content .content-wrap .social__link
+		margin-right: 35px
+	.footer-content .btn
+		margin-left: 60px
+		
+
+@media  (max-width: 1094px)
+	.footer-content
+		.btn
+			display: block
+			width: 539px
+			margin: 20px auto 0
+	.footer .footer-content .content-wrap
+		flex-wrap: wrap
+
+	.footer .footer-content
+		padding-bottom: 40px
+	.footer .footer-content .content-wrap .social__link:last-child
+		margin-right: 0
+	
+
+@media  (max-width: 650px)
+	.footer .footer-content .content-wrap .logo-wrap
+		margin-right: 50px
+	
+@media  (max-width: 550px)
+	.footer .footer-content .content-wrap .social
+		margin: 20px auto 0
+	.footer .footer-content .content-wrap .logo-wrap
+		margin: 0 auto
+	.footer .footer-content .content-wrap .social__link:first-child
+		margin-left: 35px
+	.footer .footer-content .content-wrap .social__link:last-child
+		margin-right: 35px
+	.footer .footer-content .content-wrap .btn a
+		font-size: 22px
+	.footer .number
+		padding-bottom: 50px
+	.footer .circle__wrap .circle--1
+		display: none
+	.footer .circle__wrap .circle--4
+		display: none
+	.footer .circle__wrap .circle--2
+		display: none
+
+@media  (max-width: 448px)
+	.logo img
+		width: 130px
+	.footer .footer-content .content-wrap .social__link img
+		width: 33px
+	.footer-content .btn
+		max-width: 350px
+		width: auto
+		margin: 0 auto
+	.footer .footer-content .content-wrap .btn a
+		font-size: 18px
+	.footer .footer-copyright
+		font-size: 18px
+	.footer p
+		font-size: 20px
+	.footer .footer-content .content-wrap .social
+		margin: 10px auto 0
+
+/***************************************************************
+	***********************MEDIA	SIDENAV **************************
+	*************************************************************/	
+
+@media  (max-width: 943px)
+	.sidenav ul li a
+		font-size: 18px
+
+@media  (max-width: 550px)
+	.sidenav ul li
+		padding: 0
+	.sidenav ul li a
+		font-size: 14px
+
+@media  (max-width: 448px)
+	.sidenav ul li a
+		font-size: 13px
+
+/***************************************************************
+	***********************MEDIA	scroll **************************
+	*************************************************************/
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+@import "media" // Always at the end
+
